@@ -13,6 +13,7 @@ public class UserDTO {
     private String Address;
 
     private String Email;
+    public boolean verified;
 
     public UserDTO(String firstName, String lastName, String password, String Address, String Email) {
         this.firstName = firstName;
@@ -20,6 +21,7 @@ public class UserDTO {
         this.password = password;
         this.Address = Address;
         this.Email = Email;
+        this.verified=false;
     }
 
 

@@ -1,8 +1,6 @@
 package com.bridgelabz.bookstoreapp.modal;
 
-import com.bridgelabz.bookstoreapp.dto.BookDTO;
 import com.bridgelabz.bookstoreapp.dto.CartDTO;
-import com.bridgelabz.bookstoreapp.dto.UserDTO;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -24,20 +22,13 @@ public @Data class CartData {
     @JoinColumn(name = "userid")
     private UserData userData;
 
-   public CartData(BookData bookData,UserData userData,CartDTO cartDTO){
-        this.userData = userData;
-        this.bookData = bookData;
-        this.Qty = cartDTO.Qty;
+    public CartData(int Qty, BookData bookData, UserData userData) {
+       this.Qty = Qty;
+       this.bookData = bookData;
+       this.userData = userData;
     }
-    public CartData(CartDTO cartDTO){
-       this.userData= cartDTO.userid;
-       this.
+    public CartData() {
 
     }
-    public void updateCartByid(CartDTO cartDTO,BookData bookData, UserData userData) {
-        this.userData = userData;
-        this.bookData = bookData;
-        this.Qty = cartDTO.Qty;
 
-    }
 }

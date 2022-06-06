@@ -4,17 +4,19 @@ import com.bridgelabz.bookstoreapp.dto.CartDTO;
 import com.bridgelabz.bookstoreapp.modal.CartData;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IcartService {
 
     List<CartData> gatAllCart();
 
-    CartData getCartbyid(int id);
+    Optional<CartData> getCartbyid(int userid);
+
+    Optional<CartData> deleteCart(int userid);
 
     CartData InsertCart(CartDTO cartDTO);
 
-    CartData updateCartByid(int userid, int bookid, CartDTO cartDTO);
+    CartData updateCartByid(int userid, CartDTO cartDTO);
 
-    void deleteCart(int id);
-
+    CartData updateQty(int userid, int Qty);
 }

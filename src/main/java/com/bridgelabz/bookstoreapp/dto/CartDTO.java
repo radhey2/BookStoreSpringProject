@@ -1,17 +1,14 @@
 package com.bridgelabz.bookstoreapp.dto;
 
-public class CartDTO {
+import com.bridgelabz.bookstoreapp.modal.BookData;
+import com.bridgelabz.bookstoreapp.modal.UserData;
+import lombok.Data;
 
-    public int id;
-    public long userid;
-    public long Bookid;
+public @Data class CartDTO {
+
+    public int bookid;
+    public int userid;
     public int Qty;
 
-    public CartDTO(int id,int userid,int Bookid,int Qty){
-        this.id = id;
-        this.userid = userid;
-        this.Bookid = Bookid;
-        this.Qty = Qty;
 
-    }
 }

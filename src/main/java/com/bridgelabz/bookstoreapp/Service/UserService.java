@@ -3,12 +3,12 @@ package com.bridgelabz.bookstoreapp.Service;
 import com.bridgelabz.bookstoreapp.Repository.UserRepository;
 import com.bridgelabz.bookstoreapp.dto.UserDTO;
 import com.bridgelabz.bookstoreapp.exception.UserExecption;
-import com.bridgelabz.bookstoreapp.modal.BookData;
 import com.bridgelabz.bookstoreapp.modal.UserData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+//import javax.validation.constraints.Email;
 import java.util.List;
 
 
@@ -18,6 +18,31 @@ public class UserService implements IUserService {
 
     @Autowired
     private UserRepository userRepository;
+
+//    @Autowired
+//    TokenUtil tokenUtil;
+//
+//    @Autowired
+//    IEmailService emailService;
+
+
+//    @Override
+//    public ResponseEntity<ResponseDTO> loginUser(LoginDTO loginDTO) {
+//        return null;
+//    }
+//
+//    @Override
+//    public ResponseEntity<ResponseDTO> createAccount(UserDTO userDTO) {
+//
+//        UserData userData= userRepository.save(new UserData(userDTO));
+//
+//        String token = tokenUtil.createToken(Long.valueOf(userData.getId()));
+//
+//        Email email = new Email(userData.getEmail()," user is registered",userData.getFirstName() + "=>" + emailService.getLink(token));
+//        emailService.sendMail(email);
+//        ResponseDTO responseDto = new ResponseDTO("User is created", userData, token);
+//        return new ResponseEntity<>(responseDto, HttpStatus.OK);
+//    }
 
     @Override
     public  List<UserData> getAllUser() {

@@ -1,14 +1,12 @@
 package com.bridgelabz.bookstoreapp.Controller;
 
 import com.bridgelabz.bookstoreapp.Service.IUserService;
-import com.bridgelabz.bookstoreapp.Service.UserService;
 import com.bridgelabz.bookstoreapp.dto.ResponseDTO;
 import com.bridgelabz.bookstoreapp.dto.UserDTO;
 import com.bridgelabz.bookstoreapp.modal.UserData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -21,7 +19,7 @@ public class UserController {
    @Autowired
     private IUserService userService;
 
-    @RequestMapping(value = {"","/","getAll"})
+    @GetMapping(value = {"","/","getAll"})
     public ResponseEntity<ResponseDTO> getAllUser(){
         List<UserData> userData = null;
         userData = userService.getAllUser();
@@ -53,6 +51,12 @@ public class UserController {
         ResponseDTO responseDTO = new ResponseDTO("User Update Successfully",userData);
         return new ResponseEntity<ResponseDTO>(responseDTO,HttpStatus.OK);
     }
+
+//    @PostMapping("/login")
+//    public ResponseEntity<ResponseDTO> login(@RequestBody LoginDTO loginDTO){
+//        return IUserService.loginUser(loginDTO);
+//
+//    }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<ResponseDTO> deleteUserData(@PathVariable("id") int id){

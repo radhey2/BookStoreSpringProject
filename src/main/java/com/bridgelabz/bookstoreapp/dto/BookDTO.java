@@ -1,7 +1,5 @@
 package com.bridgelabz.bookstoreapp.dto;
 
-import java.awt.geom.QuadCurve2D;
-
 public class BookDTO {
     public String BookName;
     public String AuthorName;
@@ -10,7 +8,7 @@ public class BookDTO {
     public int price;
     public int Qty;
 
-    public BookDTO(String BookName, String AuthorName, String BookDescription, String BookImg, int price, int qty){
+    public BookDTO(String BookName, String AuthorName, String BookDescription, String BookImg, int price, int Qty){
         this.BookName= BookName;
         this.AuthorName = AuthorName;
         this.BookDescription = BookDescription;

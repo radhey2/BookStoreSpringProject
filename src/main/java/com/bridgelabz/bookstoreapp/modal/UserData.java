@@ -19,12 +19,14 @@ public @Data class UserData {
     private String password;
     private String Address;
     private String Email;
+    public boolean verified;
     public UserData(UserDTO userDTO) {
         this.firstName = userDTO.getFirstName();
         this.lastName = userDTO.getLastName();
         this.password = userDTO.getPassword();
         this.Address = userDTO.getAddress();
         this.Email = userDTO.getEmail();
+        this.verified = userDTO.verified;
     }
 
     public UserData() {

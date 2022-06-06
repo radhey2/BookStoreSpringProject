@@ -32,22 +32,22 @@ public class BookService implements IBookService{
     }
 
     @Override
-    public BookData getBookbyid(int id) {
+    public BookData getBookbyid(int Bookid) {
         return bookRepository
-                .findById(id)
-                .orElseThrow(()-> new BookException("Book with Id : " +id+ "does not Exist"));
+                .findById(Bookid)
+                .orElseThrow(()-> new BookException("Book with Id : " +Bookid+ "does not Exist"));
     }
 
     @Override
-    public BookData updateBookByid(int id,BookDTO bookDTO) {
-        BookData bookData = this.getBookbyid(id);
+    public BookData updateBookByid(int Bookid,BookDTO bookDTO) {
+        BookData bookData = this.getBookbyid(Bookid);
         bookData.updateBookByid(bookDTO);
         return bookRepository.save(bookData);
     }
 
     @Override
-    public void deleteBook(int id) {
-        BookData bookData = this.getBookbyid(id);
+    public void deleteBook(int Bookid) {
+        BookData bookData = this.getBookbyid(Bookid);
         bookRepository.delete(bookData);
     }
 

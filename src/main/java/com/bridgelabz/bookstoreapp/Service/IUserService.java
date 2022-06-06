@@ -6,6 +6,12 @@ import com.bridgelabz.bookstoreapp.modal.UserData;
 import java.util.List;
 
 public interface IUserService {
+
+
+//    ResponseEntity<ResponseDTO> loginUser(LoginDTO loginDTO);
+//
+//    ResponseEntity<ResponseDTO> createAccount(UserDTO userDTO);
+
     List<UserData> getAllUser();
 
     UserData getUserByid(int id);

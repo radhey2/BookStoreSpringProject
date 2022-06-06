@@ -11,7 +11,7 @@ public @Data class BookData {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Book_id")
-    private int id;
+    private int Bookid;
     private String BookName;
     private String AuthorName;
     private String BookDescription;
@@ -33,6 +33,7 @@ public @Data class BookData {
     }
 
     public void updateBookByid(BookDTO bookDTO) {
+        this.Bookid = Bookid;
         this.BookName = bookDTO.BookName;
         this.AuthorName = bookDTO.AuthorName;
         this.BookDescription = bookDTO.BookDescription;
@@ -40,4 +41,5 @@ public @Data class BookData {
         this.price = bookDTO.price;
         this.Qty = bookDTO.Qty;
     }
+
 }

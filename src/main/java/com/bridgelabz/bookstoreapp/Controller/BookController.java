@@ -1,10 +1,8 @@
 package com.bridgelabz.bookstoreapp.Controller;
 
 import com.bridgelabz.bookstoreapp.Service.IBookService;
-import com.bridgelabz.bookstoreapp.Service.IUserService;
 import com.bridgelabz.bookstoreapp.dto.BookDTO;
 import com.bridgelabz.bookstoreapp.dto.ResponseDTO;
-import com.bridgelabz.bookstoreapp.dto.UserDTO;
 import com.bridgelabz.bookstoreapp.modal.BookData;
 import com.bridgelabz.bookstoreapp.modal.UserData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +20,7 @@ public class BookController {
     @Autowired
     private IBookService bookService;
 
-    @RequestMapping(value = {"","/","getAll"})
+    @GetMapping(value = {"","/","getAll"})
     public ResponseEntity<ResponseDTO> getAllBook(){
         List<BookData>bookData = null;
         bookData = bookService.gatAllBook();
@@ -57,7 +55,7 @@ public class BookController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<ResponseDTO> deleteBook(@PathVariable("id") int id){
         bookService.deleteBook(id);
-        ResponseDTO responseDTO = new ResponseDTO("Delete book Successfully","Deleted id"+id);
+        ResponseDTO responseDTO = new ResponseDTO("Delete id Successfully : " ,"Deleted id is"+id);
         return new ResponseEntity<ResponseDTO>(responseDTO,HttpStatus.OK);
     }
 }
