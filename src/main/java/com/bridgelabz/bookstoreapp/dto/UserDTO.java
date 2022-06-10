@@ -12,7 +12,7 @@ public class UserDTO {
 
     private String Address;
 
-    private String Email;
+    private String email;
     public boolean verified;
 
     public UserDTO(String firstName, String lastName, String password, String Address, String Email) {
@@ -20,13 +20,8 @@ public class UserDTO {
         this.lastName = lastName;
         this.password = password;
         this.Address = Address;
-        this.Email = Email;
+        this.email = Email;
         this.verified=false;
     }
-
-
-    public String toString(){
-        return  "firstName" +firstName+"lastname"+lastName+"password" +password+ "Address" +Address+ "Email" +Email;
-}
 
 }

@@ -17,7 +17,7 @@ public class UserException {
         List<String> errmsg = errorList.stream()
                 .map(ObjErr -> ObjErr.getDefaultMessage())
                 .collect(Collectors.toList());
-        ResponseDTO responseDTO = new ResponseDTO("Exception While Processing Rest Request",errmsg);
+        ResponseDTO responseDTO = new ResponseDTO("Exception While Processing Rest Request",errmsg,null);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.BAD_REQUEST);
     }
 }
