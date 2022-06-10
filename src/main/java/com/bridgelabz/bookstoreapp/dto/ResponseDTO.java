@@ -7,8 +7,7 @@ import lombok.Data;
 public @Data  class ResponseDTO {
     private String message;
     private Object data;
-
-   public String token;
+    public String token;
 
 
     public ResponseDTO(String message, Object data,String token) {
@@ -18,7 +17,4 @@ public @Data  class ResponseDTO {
 
     }
 
-    public ResponseDTO() {
-
-    }
 }

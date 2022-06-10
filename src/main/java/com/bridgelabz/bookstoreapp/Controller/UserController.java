@@ -1,6 +1,10 @@
 package com.bridgelabz.bookstoreapp.Controller;
 
 import com.bridgelabz.bookstoreapp.Service.IUserService;
+<<<<<<< HEAD
+=======
+import com.bridgelabz.bookstoreapp.dto.ForgotPassDTO;
+>>>>>>> UC3_JWT_JMS
 import com.bridgelabz.bookstoreapp.dto.LoginDTO;
 import com.bridgelabz.bookstoreapp.dto.ResponseDTO;
 import com.bridgelabz.bookstoreapp.dto.UserDTO;
@@ -40,7 +44,10 @@ public class UserController {
     @PostMapping("/create")
     public ResponseEntity<ResponseDTO> addUser(@Valid @RequestBody UserDTO userDTO){
         return userService.createAccount(userDTO);
+<<<<<<< HEAD
 
+=======
+>>>>>>> UC3_JWT_JMS
     }
 
     @PutMapping ("/update/{id}")
@@ -49,6 +56,10 @@ public class UserController {
         userData = userService.updateUser(id,userDTO);
         ResponseDTO responseDTO = new ResponseDTO("User Update Successfully",userData,null);
         return new ResponseEntity<ResponseDTO>(responseDTO,HttpStatus.OK);
+    }
+    @PostMapping("/forgot")
+    public ResponseEntity<ResponseDTO> forgotPwd(@RequestBody ForgotPassDTO forgotPWDDto){
+        return userService.forgotPwd(forgotPWDDto);
     }
 
     @PostMapping("/login")
@@ -69,6 +80,11 @@ public class UserController {
     }
 
 
+
+    @GetMapping("/verify/{token}")
+    public ResponseEntity<ResponseDTO> verify(@PathVariable String token) {
+        return userService.verify(token);
+    }
 
 
 }

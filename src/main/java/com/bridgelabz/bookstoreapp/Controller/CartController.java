@@ -3,9 +3,7 @@ package com.bridgelabz.bookstoreapp.Controller;
 import com.bridgelabz.bookstoreapp.Service.IcartService;
 import com.bridgelabz.bookstoreapp.dto.CartDTO;
 import com.bridgelabz.bookstoreapp.dto.ResponseDTO;
-import com.bridgelabz.bookstoreapp.modal.BookData;
 import com.bridgelabz.bookstoreapp.modal.CartData;
-import com.bridgelabz.bookstoreapp.modal.UserData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,16 +22,24 @@ public class CartController {
 
     @GetMapping(value = "/getAll")
     public ResponseEntity<ResponseDTO> getAllCart() {
+<<<<<<< HEAD
         List<CartData> cartData = null;
         cartData = cartService.gatAllCart();
+=======
+        List<CartData> cartData = cartService.gatAllCart();
+>>>>>>> UC3_JWT_JMS
         ResponseDTO responseDTO = new ResponseDTO("Get Call For Success", cartData,null);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
     }
 
     @GetMapping("/getbyID/{cartid}")
     public ResponseEntity<ResponseDTO> getCartByid(@PathVariable("cartid") int cartid) {
+<<<<<<< HEAD
         Optional<CartData> cartData = null;
         cartData = cartService.getCartbyid(cartid);
+=======
+        Optional<CartData> cartData = cartService.getCartbyid(cartid);
+>>>>>>> UC3_JWT_JMS
         ResponseDTO responseDTO = new ResponseDTO("Get Call Success For Id", cartData,null);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
     }

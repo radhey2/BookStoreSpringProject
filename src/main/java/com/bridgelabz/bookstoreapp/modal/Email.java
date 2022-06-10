@@ -13,4 +13,5 @@ public @Data class Email {
         this.body = body;
     }
 
+
 }

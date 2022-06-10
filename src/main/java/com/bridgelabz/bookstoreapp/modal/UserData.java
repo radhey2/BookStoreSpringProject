@@ -32,7 +32,6 @@ public @Data class UserData {
     public UserData() {
 
     }
-
     public void updateUser(UserDTO userDTO) {
         this.firstName = userDTO.getFirstName();
         this.lastName = userDTO.getLastName();

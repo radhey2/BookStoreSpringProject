@@ -1,6 +1,7 @@
 package com.bridgelabz.bookstoreapp.Service;
 
 import com.bridgelabz.bookstoreapp.dto.ResponseDTO;
+import com.bridgelabz.bookstoreapp.modal.Email;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -8,13 +9,12 @@ import org.springframework.stereotype.Service;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-//import javax.validation.constraints.Email;
-import com.bridgelabz.bookstoreapp.modal.Email;
 import java.util.Properties;
 
 @Service
 
 public class EmailService implements IEmailService {
+
     @Override
     public ResponseEntity<ResponseDTO> sendMail(Email email) {
         final String fromEmail = "radheshyamb9@gmail.com";

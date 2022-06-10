@@ -2,6 +2,7 @@ package com.bridgelabz.bookstoreapp.Service;
 
 import com.bridgelabz.bookstoreapp.Repository.UserRepository;
 import com.bridgelabz.bookstoreapp.Util.TokenUtil;
+import com.bridgelabz.bookstoreapp.dto.ForgotPassDTO;
 import com.bridgelabz.bookstoreapp.dto.LoginDTO;
 import com.bridgelabz.bookstoreapp.dto.ResponseDTO;
 import com.bridgelabz.bookstoreapp.dto.UserDTO;
@@ -13,8 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-//import javax.validation.constraints.Email;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,6 +32,22 @@ public class UserService implements IUserService {
     IEmailService emailService;
 
 
+  //  @Override
+
+//    public ResponseEntity<ResponseDTO> loginUser(LoginDTO loginDTO) {
+//        Optional<UserData> user=userRepository.findByEmail(loginDTO.getEmail());
+//        boolean password=user.get().getPassword().equals(loginDTO.getPassword());
+//        if(password=false){
+//            ResponseDTO responseDto=new ResponseDTO("login failed",null,null);
+//            return new ResponseEntity<ResponseDTO>(responseDto, HttpStatus.UNAUTHORIZED);
+//        }
+//        else{
+//            ResponseDTO responseDto=new ResponseDTO(" LOgin Sucessfully",user,null);
+//            return new ResponseEntity<>(responseDto,HttpStatus.OK);
+//        }
+
+  //  }
+
     @Override
     public ResponseEntity<ResponseDTO> createAccount(UserDTO userDTO) {
 
@@ -45,6 +60,14 @@ public class UserService implements IUserService {
         ResponseDTO responseDto = new ResponseDTO("User is created", userData, token);
         return new ResponseEntity<>(responseDto, HttpStatus.OK);
     }
+    @Override
+    public ResponseEntity<ResponseDTO> forgotPwd(ForgotPassDTO forgotPWDDto) {
+        Optional<UserData> user=userRepository.getUserByEmail(String.valueOf(forgotPWDDto.getEmail()));
+        String body="http://localhost:4200/resetpassword/"+tokenUtil.createToken(Long.valueOf(user.get().getId()));
+        Email email= new Email(user.get().getEmail(), "verification mail", user.get().getFirstName());
+        return  emailService.sendMail(email);
+    }
+
 
     @Override
     public  List<UserData> getAllUser() {
@@ -103,6 +126,5 @@ public class UserService implements IUserService {
         ResponseDTO responseDTO = new ResponseDTO(" The user has been verified ", user, token);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
     }
-
 
 }
