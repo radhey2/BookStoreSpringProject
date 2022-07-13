@@ -110,4 +110,16 @@ public class CartService implements IcartService {
         }
     }
 
+    @Override
+    public CartData updateQuntity(Integer cartId, int Qty, int total) {
+        Optional<CartData> cartData=cartRepository.findById(cartId);
+        if (cartData.isEmpty()){
+            throw new CartException("invalid id please input valid Id");
+        }
+        cartData.get().setQty(Qty);
+        cartData.get().setTotal(total);
+        cartRepository.save(cartData.get());
+        return cartData.get();
+    }
+
 }

@@ -19,4 +19,6 @@ public interface IcartService {
     CartData updateCartByid(int userid, CartDTO cartDTO);
 
     CartData updateQty(int userid, int Qty);
+
+    CartData updateQuntity(Integer cartId, int quantity, int total);
 }

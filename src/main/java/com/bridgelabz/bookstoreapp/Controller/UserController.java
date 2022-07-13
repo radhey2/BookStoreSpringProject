@@ -1,10 +1,7 @@
 package com.bridgelabz.bookstoreapp.Controller;
 
 import com.bridgelabz.bookstoreapp.Service.IUserService;
-<<<<<<< HEAD
-=======
 import com.bridgelabz.bookstoreapp.dto.ForgotPassDTO;
->>>>>>> UC3_JWT_JMS
 import com.bridgelabz.bookstoreapp.dto.LoginDTO;
 import com.bridgelabz.bookstoreapp.dto.ResponseDTO;
 import com.bridgelabz.bookstoreapp.dto.UserDTO;
@@ -17,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+
+@CrossOrigin(allowedHeaders = "*", origins = "*")
 @RestController
 @RequestMapping("/BookStore")
 public class UserController {
@@ -44,10 +43,7 @@ public class UserController {
     @PostMapping("/create")
     public ResponseEntity<ResponseDTO> addUser(@Valid @RequestBody UserDTO userDTO){
         return userService.createAccount(userDTO);
-<<<<<<< HEAD
 
-=======
->>>>>>> UC3_JWT_JMS
     }
 
     @PutMapping ("/update/{id}")
@@ -74,12 +70,6 @@ public class UserController {
         ResponseDTO responseDTO = new ResponseDTO("Delete User Successfully","Deleted id"+id,null);
         return new ResponseEntity<ResponseDTO>(responseDTO,HttpStatus.OK);
     }
-    @GetMapping("/verify/{token}")
-    public ResponseEntity<ResponseDTO> verify(@PathVariable String token) {
-        return userService.verify(token);
-    }
-
-
 
     @GetMapping("/verify/{token}")
     public ResponseEntity<ResponseDTO> verify(@PathVariable String token) {

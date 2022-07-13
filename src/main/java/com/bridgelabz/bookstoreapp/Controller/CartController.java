@@ -13,6 +13,7 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(allowedHeaders = "*", origins = "*")
 @RestController
 @RequestMapping(value = "/Cart")
 public class CartController {
@@ -22,24 +23,18 @@ public class CartController {
 
     @GetMapping(value = "/getAll")
     public ResponseEntity<ResponseDTO> getAllCart() {
-<<<<<<< HEAD
+
         List<CartData> cartData = null;
         cartData = cartService.gatAllCart();
-=======
-        List<CartData> cartData = cartService.gatAllCart();
->>>>>>> UC3_JWT_JMS
         ResponseDTO responseDTO = new ResponseDTO("Get Call For Success", cartData,null);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
     }
 
     @GetMapping("/getbyID/{cartid}")
     public ResponseEntity<ResponseDTO> getCartByid(@PathVariable("cartid") int cartid) {
-<<<<<<< HEAD
-        Optional<CartData> cartData = null;
-        cartData = cartService.getCartbyid(cartid);
-=======
+
+//        cartData = cartService.getCartbyid(cartid);
         Optional<CartData> cartData = cartService.getCartbyid(cartid);
->>>>>>> UC3_JWT_JMS
         ResponseDTO responseDTO = new ResponseDTO("Get Call Success For Id", cartData,null);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
     }
@@ -66,6 +61,13 @@ public class CartController {
         cartService.deleteCart(cartid);
         ResponseDTO responseDTO = new ResponseDTO("Delete book Successfully", "Deleted id" + cartid,null);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
+    }
+
+    @PutMapping("/UpdateQunatity/{cartId}/{Qty}/{total}")
+    public ResponseEntity<ResponseDTO> updateQuntityData(@PathVariable Integer cartId, @PathVariable int Qty,@PathVariable int total) {
+        CartData updateQuntity = cartService.updateQuntity(cartId, Qty,total);
+        ResponseDTO dto = new ResponseDTO("Cart quntity update Successfully " ,updateQuntity,null);
+        return  new ResponseEntity<>(dto,HttpStatus.ACCEPTED);
     }
 
 

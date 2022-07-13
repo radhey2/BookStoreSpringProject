@@ -9,6 +9,7 @@ public @Data class CartDTO {
     public int bookid;
     public int userid;
     public int Qty;
+    public Integer total;
 
 
 }
