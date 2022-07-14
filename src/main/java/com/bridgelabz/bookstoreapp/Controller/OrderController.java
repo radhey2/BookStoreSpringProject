@@ -13,6 +13,8 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(allowedHeaders = "*", origins = "*")
+
 @RestController
 @RequestMapping(value = "/order")
 public class OrderController {

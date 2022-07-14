@@ -82,6 +82,7 @@ public class CartService implements IcartService {
     public Optional<CartData> deleteCart(int id) {
         Optional<CartData> deleteData = cartRepository.findById(id);
         if (deleteData.isPresent()) {
+//            cartRepository.deleteAll();
             cartRepository.deleteById(id);
             return deleteData;
         } else {
