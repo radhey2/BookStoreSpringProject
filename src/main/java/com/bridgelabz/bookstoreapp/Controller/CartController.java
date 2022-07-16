@@ -63,6 +63,13 @@ public class CartController {
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
     }
 
+    @DeleteMapping("/deleteAll")
+    public ResponseEntity<ResponseDTO> deleteAllCart(CartDTO cartDTO){
+        cartService.deleteAllCart(cartDTO);
+        ResponseDTO responseDTO = new ResponseDTO("Cart is Empty","Empty Cart",null);
+        return new ResponseEntity<>(responseDTO,HttpStatus.OK);
+    }
+
     @PutMapping("/UpdateQunatity/{cartId}/{Qty}/{total}")
     public ResponseEntity<ResponseDTO> updateQuntityData(@PathVariable Integer cartId, @PathVariable int Qty,@PathVariable int total) {
         CartData updateQuntity = cartService.updateQuntity(cartId, Qty,total);

@@ -38,6 +38,14 @@ public class BookController {
 
     }
 
+    @GetMapping(value = "/getcount")
+    public ResponseEntity<ResponseDTO> getAddressBookDataCount() {
+        List<BookData> listOfBooks = bookService.getAllBookData();
+        Integer count = listOfBooks.size();
+        ResponseDTO dto = new ResponseDTO("Book count successfully (:", count,null);
+        return new ResponseEntity(dto, HttpStatus.OK);
+    }
+
     @PostMapping("/Insert")
     public ResponseEntity<ResponseDTO> InsertBook(@Valid @RequestBody BookDTO bookDTO){
         BookData bookData = bookService.InsertBook(bookDTO);

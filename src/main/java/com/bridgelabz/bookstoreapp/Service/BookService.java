@@ -51,4 +51,11 @@ public class BookService implements IBookService{
         bookRepository.delete(bookData);
     }
 
+    @Override
+    public List<BookData> getAllBookData() {
+        List<BookData> getBooks=bookRepository.findAll();
+        return getBooks;
+    }
 }
+
+

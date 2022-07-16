@@ -14,7 +14,7 @@
     <name>BooKStoreApp</name>
     <description>BooKStoreApp</description>
     <properties>
-        <java.version>17</java.version>
+        <java.version>17</java.version>   
     </properties>
     <dependencies>
         <dependency>

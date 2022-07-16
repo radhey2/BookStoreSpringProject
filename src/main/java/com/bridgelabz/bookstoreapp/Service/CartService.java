@@ -4,7 +4,6 @@ import com.bridgelabz.bookstoreapp.Repository.BookRepository;
 import com.bridgelabz.bookstoreapp.Repository.CartRepository;
 import com.bridgelabz.bookstoreapp.Repository.UserRepository;
 import com.bridgelabz.bookstoreapp.dto.CartDTO;
-import com.bridgelabz.bookstoreapp.dto.ResponseDTO;
 import com.bridgelabz.bookstoreapp.exception.BookException;
 import com.bridgelabz.bookstoreapp.exception.CartException;
 import com.bridgelabz.bookstoreapp.modal.BookData;
@@ -121,6 +120,13 @@ public class CartService implements IcartService {
         cartData.get().setTotal(total);
         cartRepository.save(cartData.get());
         return cartData.get();
+    }
+
+    @Override
+    public void deleteAllCart(CartDTO cartDTO) {
+        cartRepository.deleteAll();
+
+
     }
 
 }

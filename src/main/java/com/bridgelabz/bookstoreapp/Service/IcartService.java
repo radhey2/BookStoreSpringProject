@@ -21,4 +21,6 @@ public interface IcartService {
     CartData updateQty(int userid, int Qty);
 
     CartData updateQuntity(Integer cartId, int quantity, int total);
+
+    void deleteAllCart(CartDTO cartDTO);
 }
